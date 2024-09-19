@@ -10,9 +10,7 @@ export default class CloudDashboard {
     this.api = new Entity();
     this.instance = new Instance();
     this.log = new Logs();
-    this.websocket = new WebSocket(
-      "https://cloud-dashboard-backend-hnq4.onrender.com"
-    );
+    this.websocket = api.websocket();
 
     this.bindToDOM = this.bindToDOM.bind(this);
     this.registerEvents = this.registerEvents.bind(this);
@@ -97,9 +95,7 @@ export default class CloudDashboard {
   }
 
   registerEvents() {
-    const eventSource = new EventSource(
-      "https://cloud-dashboard-backend-hnq4.onrender.com/sse"
-    );
+    const eventSource = this.api.sse();
 
     eventSource.addEventListener("message", (e) => {
       const data = JSON.parse(e.data);
