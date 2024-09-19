@@ -10,7 +10,7 @@ export default class CloudDashboard {
     this.api = new Entity();
     this.instance = new Instance();
     this.log = new Logs();
-    this.websocket = api.websocket();
+    this.websocket = this.api.websocket();
 
     this.bindToDOM = this.bindToDOM.bind(this);
     this.registerEvents = this.registerEvents.bind(this);

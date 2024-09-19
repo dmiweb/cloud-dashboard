@@ -1,6 +1,6 @@
 export default class Entity {
   constructor() {
-    this.url = 'https://cloud-dashboard-backend-hnq4.onrender.com/'
+    this.url = "https://cloud-dashboard-backend-hnq4.onrender.com/";
   }
 
   eventSource() {
@@ -8,7 +8,7 @@ export default class Entity {
   }
 
   websocket() {
-    new WebSocket(this.url)
+    new WebSocket(this.url);
   }
 
   async list(callback) {
@@ -18,23 +18,17 @@ export default class Entity {
   }
 
   async create(callback) {
-    const response = await callback(
-      this.url,
-      {
-        method: "POST",
-      }
-    );
+    const response = await callback(this.url, {
+      method: "POST",
+    });
 
     return await this.handlerResponse(response);
   }
 
   async delete(id, callback) {
-    const response = await callback(
-      this.url + "?id=" + id,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await callback(this.url + "?id=" + id, {
+      method: "DELETE",
+    });
 
     return await this.handlerResponse(response);
   }
