@@ -3,12 +3,12 @@ export default class Entity {
     this.url = "https://cloud-dashboard-backend-hnq4.onrender.com/";
   }
 
-  eventSource() {
-    new EventSource(this.url + "sse");
+  sse() {
+    return new EventSource(this.url + "sse");
   }
 
   websocket() {
-    new WebSocket(this.url);
+    return new WebSocket(this.url);
   }
 
   async list(callback) {

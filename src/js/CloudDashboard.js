@@ -78,19 +78,19 @@ export default class CloudDashboard {
     this.api.create(createRequest);
   }
 
-  requestRemoveInstance(e) {
-    if (e.target.classList.contains("actions__delete-btn")) {
-      const instance = e.target.closest(".instances__control-panel");
-
-      this.api.delete(instance.id, createRequest);
-    }
-  }
-
   requestStateInstance(e) {
     if (e.target.classList.contains("actions__start-btn")) {
       const instance = e.target.closest(".instances__control-panel");
 
       this.websocket.send(JSON.stringify({ id: instance.id }));
+    }
+  }
+
+  requestRemoveInstance(e) {
+    if (e.target.classList.contains("actions__delete-btn")) {
+      const instance = e.target.closest(".instances__control-panel");
+
+      this.api.delete(instance.id, createRequest);
     }
   }
 
